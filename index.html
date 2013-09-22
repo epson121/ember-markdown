@@ -12,76 +12,24 @@
   <script type="text/x-handlebars">
     <div class="navbar" >
       <div class="navbar-inner">
-        <a class="brand" href="#">Bloggr </a>
-        <ul class="nav" >
-          <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>
-          <li>{{#link-to 'about'}}About{{/link-to}}</li>
-        </ul>
+        <a class="brand" href="#">Markup editor </a>
       </div>
     </div>
-    {{outlet}}
-  </script>
-
-   <script type="text/x-handlebars" id="about">
-    <p>Hi. </p>
-    <p>This is a simple about page made for testing purposes. </p>
-  </script>
-
-  <script type="text/x-handlebars" id="posts">
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <table class='table'>
-            <thead>
-              <tr><th>Recent Posts</th></tr>
-            </thead>
-            {{#each model}}
-            <tr><td>
-                {{#link-to 'post' this}}
-                {{{title}}} - <small>{{author.name}}</small>
-                {{/link-to }}
-            </td></tr>
-            {{/each}}
-          </table>
-        </div>
-        <div class="span9">
-          {{outlet}}
-        </div>
+    <div class="row">
+      <div class="span6">
+        {{partial 'md'}}
+      </div>
+      <div class="span6" style="border:1px solid black;height:508px;padding:3px;">
+        {{format-markdown excerpt}}  
       </div>
     </div>
   </script>
 
-  <script type="text/x-handlebars" id="post">
 
-    {{#if isEditing}}
-      {{partial 'post/edit'}}
-      <button {{action 'doneEditing'}}>Done</button>
-    {{else}}
-      <button {{action 'edit'}}>Edit</button>
-    {{/if}}
-
-
-    <h1>{{title}}</h1>
-    <h2>by {{author.name}} <small class='muted'>({{format-date date}})</small></h2>
-
-    <hr>
-
-    <div class='intro'>
-      {{format-markdown excerpt}}
-    </div>
-
-    <div class='below-the-fold'>
-      {{format-markdown body}}
-    </div>
+  <script type="text/x-handlebars" id="md">
+    <p>{{textarea value=excerpt placeholder="Enter your markdown here. It will automatically be translated."}}</p>
   </script>
 
-
-
-  <script type="text/x-handlebars" id="post/_edit">
-    <p>{{input type="text" value=title}}</p>
-    <p>{{input type="text" value=excerpt}}</p>
-    <p>{{textarea value=body}}</p>
-  </script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0.js"></script>

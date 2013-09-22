@@ -1,7 +1,8 @@
-Ember JS example
+Ember JS editor
 =========
 
-Example of an EmberJS app from the emberjs website.
+Emberjs powered markdown editor. (Really simple one).
+
 
 This README was also written with this editor.
 It supports all markdown syntax like

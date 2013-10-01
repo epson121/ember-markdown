@@ -16,6 +16,6 @@ urls -> [this repo](https://github.com/epson121/ember-markdown)
 
 etc.
 
-enjoy )
+enjoy :)
 
     

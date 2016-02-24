@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Ember Starter Kit</title>
+<title>Markdown editor</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" >
@@ -10,16 +10,20 @@
 <body>
 
   <script type="text/x-handlebars">
-    <div class="navbar" >
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <a class="brand" href="#">Markup editor </a>
+        <a class="brand" href="#">Markdown editor</a>
+        <ul class="nav pull-right">
+          <li><a style="color: ##909090;" href="../../index.php">Back</a></li>
+        </ul>
       </div>
-    </div>
+
+    <br/><br/>
     <div class="row">
-      <div class="span6" >
+      <div class="span6 offset1" >
         {{partial 'md'}}
       </div>
-      <div class="span6" style="border:1px solid black;height:500px;padding:3px;word-break: break-all;">
+      <div id ="translated"class="span6" style="border:1px solid black;height:500px;padding:3px;word-break: break-all; background-color: black;color:white;">
         {{format-markdown input}}  
       </div>
     </div>
